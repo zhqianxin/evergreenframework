@@ -86,6 +86,7 @@ public abstract class InvocationContextImpl implements InvocationContext {
         // 如果环绕通知栈不为空，则执行栈中的通知方法
         if (!stack.empty()) {
             AdviceInfo adviceInfo = stack.pop();
+            //执行通知方法
             return adviceInfo.getAdvice().invoke(adviceInfo.getAspectInstance(), this);
         }
         // 拦截器栈执行完成后，则继续调用目标对象的方法
